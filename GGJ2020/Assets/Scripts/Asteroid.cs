@@ -23,13 +23,16 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        controller.Move(gravityStrength * Vector2.down + velocity);
+        controller.Move((gravityStrength * Vector2.down + velocity) * Time.deltaTime);
     }
 
     private void OnCollision(Transform collision)
     {
-        Instantiate(coin, transform.position, Quaternion.identity);
+        GameObject stuff = Instantiate(coin, transform.position, Quaternion.identity);
+        Destroy(stuff, 1f);
+        GetComponent<Collider2D>().enabled = false;
         Destroy(this.gameObject);
+        
     }
 
     private void OnTrigger(Transform collision)
@@ -40,6 +43,7 @@ public class Asteroid : MonoBehaviour
         
         AudioManager.instance.Play("asteroid_destoryed");
         GlobalEffects.instance.Screenshake(0.25f, 0.5f, 10);
+        GetComponent<Collider2D>().enabled = false;
         Destroy(this.gameObject);
     }
 

@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2058608600642897520
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ImpactSpikes
+  m_Shader: {fileID: -6465566751694194690, guid: c402e3ddf80137340b2bdad86eee284a,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_212383D8:
+        m_Texture: {fileID: 2800000, guid: 1391d6b23a471324aba6b9415d288028, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_386D1CE1:
+        m_Texture: {fileID: 2800000, guid: 89ee1a9488c534543a14a0af2db26536, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_3F91FBFE:
+        m_Texture: {fileID: 2800000, guid: 45dd8080a618c1e408173e30c5e80c7e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_5D34CAC9:
+        m_Texture: {fileID: 2800000, guid: 45dd8080a618c1e408173e30c5e80c7e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_729948B2:
+        m_Texture: {fileID: 2800000, guid: 89ee1a9488c534543a14a0af2db26536, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7519E2DF:
+        m_Texture: {fileID: 2800000, guid: 1391d6b23a471324aba6b9415d288028, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_761E4EB3:
+        m_Texture: {fileID: 2800000, guid: 1391d6b23a471324aba6b9415d288028, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D96F1650:
+        m_Texture: {fileID: 2800000, guid: 52a24966feeb2bc48993425837b500ea, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_1DA7C944_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 1391d6b23a471324aba6b9415d288028, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_FCC00742_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 45dd8080a618c1e408173e30c5e80c7e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5F224BA3_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 1391d6b23a471324aba6b9415d288028, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_FB7343A6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 89ee1a9488c534543a14a0af2db26536, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_E5423824_Out_0:
+        m_Texture: {fileID: 2800000, guid: 49b7655c2b3e5f848a90194d35baa2a0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_2AC54DB0: 0.64
+    - Vector1_41FF14F2: 0.57
+    - Vector1_81B93D8F: 0.95
+    - Vector1_8B851E26: 0.53
+    - Vector1_998D54A3: 0.67
+    - Vector1_BB4FC5B2: 0.37
+    - Vector1_BF3D3C42: 1
+    - Vector1_E5509630: 0.47
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _BumpScale: 1
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DissolveSmooth: 0.1
+    - _DstBlend: 0
+    - _EnvironmentReflections: 1
+    - _FireDissolve: 0.5
+    - _FireSmooth: 0.87
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _Metallic: 0
+    - _OcclusionStrength: 1
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SmokeDissolve: 0.1
+    - _Smoothness: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    m_Colors:
+    - Color_1FE47270: {r: 0.8301887, g: 0.3027859, b: 0.08223567, a: 0}
+    - Color_4A98F57: {r: 1.5157166, g: 0.5290148, b: 0.3090873, a: 0}
+    - Color_5EA958B7: {r: 1.4850372, g: 1.0307906, b: 0, a: 0}
+    - Color_F00B05A9: {r: 66.75555, g: 10.762497, b: 0, a: 0}
+    - Vector2_6D78FD55: {r: 0.86, g: 0, b: 0, a: 0}
+    - Vector2_72FCD2AE: {r: -0.38, g: 1, b: 0, a: 0}
+    - Vector2_83F47913: {r: 0.93, g: 1, b: 0, a: 0}
+    - Vector2_84CDBC6: {r: 0.06, g: -1.53, b: 0, a: 0}
+    - Vector2_961D7115: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_A0BB8FCA: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_CD2868D1: {r: 1, g: 0.6, b: 0, a: 0}
+    - Vector2_F322E38D: {r: 1.49, g: 1, b: 0, a: 0}
+    - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FireColor: {r: 1.186372, g: 0.4240834, b: 0, a: 0}
+    - _SmokeDarkColor: {r: 0, g: 0, b: 0, a: 0}
+    - _SmokeLightColor: {r: 0.02830189, g: 0.01548594, b: 0.01548594, a: 0}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

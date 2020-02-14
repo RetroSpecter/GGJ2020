@@ -14,11 +14,16 @@ public class WaveManager : MonoBehaviour
     }
 
     public void StartNextWave() {
+        waves[currentWave].KillWave();
         currentWave++;
         if (currentWave > waves.Length) {
             print("game over");
         }
         waves[currentWave].StartWave(this);
         print("started new wave");
+    }
+
+    public void KillGame() {
+        waves[currentWave].KillWave();
     }
 }

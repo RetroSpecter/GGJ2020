@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 3318584002802681186, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
         type: 3}
       propertyPath: gravityStrength
-      value: 0.1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3318584002802681186, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
         type: 3}
@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 3318584002802681187, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
         type: 3}
       propertyPath: m_Name
-      value: curvyAsteroid
+      value: curvyAsteroid Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3318584002802681187, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
         type: 3}

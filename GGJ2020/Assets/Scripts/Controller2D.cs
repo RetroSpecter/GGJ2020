@@ -92,7 +92,7 @@ public class Controller2D : MonoBehaviour {
             rayOrigin += (Vector2)transform.up * -directionX * (horizontalRaySpacing * i);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, transform.right * directionX, rayLength, collisionMask);
 
-            //Debug.DrawRay(rayOrigin, directionX * transform.right * rayLength, Color.red);
+            Debug.DrawRay(rayOrigin, directionX * transform.right * rayLength, Color.red);
 
             if (hit)
             {
@@ -120,7 +120,7 @@ public class Controller2D : MonoBehaviour {
             rayOrigin += (Vector2)(-directionY * transform.right) * (VecticalRaySpacing * i + velocity.x);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, transform.up * directionY, rayLength, collisionMask);
 
-            //Debug.DrawRay(rayOrigin, transform.up * 10 * rayLength, Color.red);
+            Debug.DrawRay(rayOrigin, transform.up * 10 * rayLength, Color.red);
 
             if (hit)
             {
@@ -144,10 +144,10 @@ public class Controller2D : MonoBehaviour {
         for (int i = 0; i < VerticalRayCount; i++)
         {
             Vector2 rayOrigin = (directionX == -1) ? raycastOrigin.bottomLeft : raycastOrigin.BottomRight;
-            rayOrigin += Vector2.up * (horizontalRaySpacing * i);
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, triggerMask);
+            rayOrigin += (Vector2)transform.up * (horizontalRaySpacing * i);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, transform.right * directionX, rayLength, triggerMask);
 
-            //Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
+            //Debug.DrawRay(rayOrigin, transform.right * directionX * rayLength, Color.red);
 
             if (hit)
             {
@@ -165,8 +165,8 @@ public class Controller2D : MonoBehaviour {
         for (int i = 0; i < VerticalRayCount; i++)
         {
             Vector2 rayOrigin = (directionY == -1) ? raycastOrigin.bottomLeft : raycastOrigin.topLeft;
-            rayOrigin += Vector2.right * (VecticalRaySpacing * i + velocity.x);
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, triggerMask);
+            rayOrigin += (Vector2)transform.right * (VecticalRaySpacing * i + velocity.x);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, transform.up * directionY, rayLength, triggerMask);
 
             //Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
 

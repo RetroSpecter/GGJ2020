@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1593981652123383070}
+  - component: {fileID: 3845279088767135706}
   m_Layer: 0
   m_Name: pie (4)
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.05801}
+--- !u!114 &3845279088767135706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593981652123383068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbd215bd087822408283c20d6c6e52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldLayers: []
 --- !u!1 &1593981653121880083
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +59,7 @@ GameObject:
   - component: {fileID: 1593981653121880093}
   - component: {fileID: 1593981653121880095}
   m_Layer: 8
-  m_Name: pie
+  m_Name: secondLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,8 +73,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593981653121880083}
   m_LocalRotation: {x: -0, y: -0, z: -0.005021839, w: 0.99998736}
-  m_LocalPosition: {x: -3.15, y: 3.24, z: 0}
-  m_LocalScale: {x: 1.9923621, y: 1.9923621, z: 1.9923612}
+  m_LocalPosition: {x: -3.0917, y: 3.1804, z: 0}
+  m_LocalScale: {x: 1.9554118, y: 1.9554118, z: 1.955411}
   m_Children:
   - {fileID: 5862284969988388551}
   - {fileID: 731091672365103940}
@@ -107,7 +121,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 917001daab11f904ba9a984134579eb1, type: 3}
-  m_Color: {r: 0.46274507, g: 1, b: 0.553191, a: 1}
+  m_Color: {r: 0.764151, g: 0.3244037, b: 0.3244037, a: 0.49019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -198,7 +212,7 @@ GameObject:
   - component: {fileID: 1593981653432492877}
   - component: {fileID: 1593981653432492879}
   m_Layer: 8
-  m_Name: pie
+  m_Name: firstLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,8 +226,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593981653432492867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.79, y: 3.85, z: 0}
-  m_LocalScale: {x: 2.4822, y: 2.4822, z: 2.4822}
+  m_LocalPosition: {x: -3.2973, y: 3.3521, z: 0}
+  m_LocalScale: {x: 2.159514, y: 2.159514, z: 2.159514}
   m_Children: []
   m_Father: {fileID: 1593981652123383070}
   m_RootOrder: 0
@@ -258,7 +272,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 917001daab11f904ba9a984134579eb1, type: 3}
-  m_Color: {r: 1, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 0.41189033, g: 0.8396226, b: 0.549708, a: 0.27450982}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

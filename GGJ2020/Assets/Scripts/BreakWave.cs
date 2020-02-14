@@ -30,12 +30,6 @@ public class BreakWave : MonoBehaviour, IWave
         }
 
         MusicManager.instance.playMusic(music);
-        if (!startWave) {
-            foreach (Asteroid asstroid in FindObjectsOfType<Asteroid>())
-            {
-                Destroy(asstroid.gameObject);
-            }
-        }
 
         pum?.Activate();
         endWave += manager.StartNextWave;

@@ -7,6 +7,7 @@ public class GlobalEffects : MonoBehaviour
 
     public static GlobalEffects instance;
     private Camera cam;
+    public GameObject vCam;
 
     void Awake()
     {
@@ -19,10 +20,11 @@ public class GlobalEffects : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            //Screenshake(0.5f, 0.5f, 10);
+            Screenshake(0.5f, 0.5f, 10);
         }   
     }
     */
+    
 
     public Sequence shake;
     public void Screenshake(float duration, float amp, int strength) {
@@ -33,7 +35,7 @@ public class GlobalEffects : MonoBehaviour
 
     public Sequence MoveCamOut(float pos, float time) {
         Sequence s = DOTween.Sequence();
-        s.Append(cam.transform.DOMoveZ(pos, time));
+        s.Append(vCam.transform.DOMoveZ(pos, time));
         return s;
     }
 

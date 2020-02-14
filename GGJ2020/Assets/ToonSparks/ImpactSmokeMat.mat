@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ImpactSmokeMat
+  m_Shader: {fileID: -6465566751694194690, guid: f9d133aa7f482234a9484817115df573,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_C40ECF1E:
+        m_Texture: {fileID: 2800000, guid: c8d8986a9b02c824c9bd22325015fa86, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D4D1C392:
+        m_Texture: {fileID: 2800000, guid: 17f623cd8abbcad428bc00191ad52214, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_91AF72D7: 0.2
+    - Vector1_ADCAFDF2: -0.02
+    m_Colors:
+    - Color_8449BE13: {r: 1.5835228, g: 1.1899943, b: 0.47057518, a: 0}
+    - Vector2_94B13A27: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_F37F23E4: {r: 1, g: 1, b: 0, a: 0}

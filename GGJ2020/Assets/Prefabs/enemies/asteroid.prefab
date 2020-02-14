@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a7d9a9fd5013340858651d560133b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityStrength: 0.15
-  coin: {fileID: 6298451133921897291, guid: 40f4160bd8225424e8ef37882ae6b86e, type: 3}
+  gravityStrength: 10
+  coin: {fileID: 469506230067976250, guid: 80b5f68d13ec9104b863615d0e3dc2c2, type: 3}
   xVel: 0
 --- !u!1 &4024143459875523175
 GameObject:

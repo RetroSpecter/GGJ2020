@@ -6,16 +6,22 @@ public class PlayerAnimation : MonoBehaviour
 {
 
     Animator anim;
+    Vector3 targetRot;
+
     // Start is called before the first frame update
     void Start()
     {
+        targetRot = new Vector3(0, 90,0);
         anim = GetComponent<Animator>();
     }
 
     public void setAnimation(Vector2 velocity) {
-        anim.SetFloat("x_velocity", Mathf.Abs(velocity.x)/12f);
+        if (Mathf.Abs(velocity.x) > 0.1f) {
+            anim.SetFloat("x_velocity", Mathf.Abs(velocity.x) / 12f);
+            targetRot = new Vector2(0, velocity.x > 0.1f ? 90 : 270);
+        }
+        transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, targetRot, Time.deltaTime * 7);
         anim.SetFloat("y_velocity", velocity.y);
-        transform.localEulerAngles = new Vector2(0, velocity.x > 0.1f ? 90 : 270);
     }
 
     public void setTrigger(string trigger) {

@@ -11,13 +11,10 @@ public class TimedSpawner : Spawner, IWave
     public float cameraZPosition;
     public AudioClip music;
 
-    // Start is called before the first frame update
-    protected override void Start()
-    {
-        // do nothing   
-    }
+     protected override void Start() { }
 
     public void StartWave(WaveManager manager) {
+        print("start");
         if(music != null)
             MusicManager.instance.playMusic(music);
             endWave += manager.StartNextWave;
@@ -35,6 +32,9 @@ public class TimedSpawner : Spawner, IWave
     }
 
     public void KillWave() {
+        foreach (Asteroid asstroid in FindObjectsOfType<Asteroid>()) {
+            Destroy(asstroid.gameObject);
+        }
         CancelInvoke();
     }
 }

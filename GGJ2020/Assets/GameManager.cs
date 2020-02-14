@@ -11,10 +11,10 @@ public class GameManager : MonoBehaviour
     void Update() {
         if (planet == null && s == null) {
             s = DOTween.Sequence();
-            s.AppendInterval(3);
+            s.AppendInterval(5);
             s.AppendCallback(() =>
             {
-                TransitionEffect.instance.transitionOut((Application.loadedLevel + 2) % Application.levelCount);
+                
             });
         }
     }

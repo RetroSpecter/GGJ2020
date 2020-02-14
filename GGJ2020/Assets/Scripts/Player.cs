@@ -83,8 +83,8 @@ public class Player : MonoBehaviour {
     }
 
     void checkIfGrounded() {
-        if (controller.collisions.above || controller.collisions.below) {
-            velocity.y = 0;
+        if (controller.collisions.below) {
+            velocity.y = Mathf.Max(0, velocity.y);
         }
 
         canJump = controller.collisions.below;
@@ -141,6 +141,7 @@ public class Player : MonoBehaviour {
     {
         if (other.GetComponent<Asteroid>() != null) {
             anim?.setTrigger("punch");
+            burstForce(Vector2.up * 15, false);
         }
         if (canMove && heldObject == null) {
             if (other.GetComponent<Machine>() != null && other.GetComponent<Machine>().health <= 0  && Input.GetButtonDown("Fire1") && currentRepair == null) {
@@ -150,10 +151,10 @@ public class Player : MonoBehaviour {
                 });
                 currentRepair = repairTimeEnum(2, repairPart, "Fire1");
                 StartCoroutine(currentRepair);
-            } else if (other.GetComponent<PlanetSlice>() != null && Input.GetButtonDown("Fire1") && currentRepair == null) {
+            } else if (other.GetComponent<ShieldLayer>() != null && Input.GetButtonDown("Fire1") && currentRepair == null) {
                 repairDelegate repairShip = (() =>
                 {
-                    other.GetComponent<PlanetSlice>().RepairLayer();
+                    other.GetComponent<ShieldLayer>().RepairLayer();
                     transform.position += transform.up * 2;
                 });
                 currentRepair = repairTimeEnum(2, repairShip, "Fire1");
