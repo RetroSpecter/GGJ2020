@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTrigger(Transform other)
     {
+        GetComponent<Collider2D>().enabled = false;
         Destroy(this.gameObject);
     }
 }

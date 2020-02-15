@@ -20,6 +20,7 @@ public class PowerUpManager : MonoBehaviour
     public void Update()
     {
         if (active) {
+            /*
             if (Input.GetButtonDown("Fire2"))
             {
                 spawnObject(turret);
@@ -29,6 +30,7 @@ public class PowerUpManager : MonoBehaviour
                 spawnObject(machine);
                 Deactivate();
             }
+            */
         }
     }
 

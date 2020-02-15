@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a23da927f5c834b9ca54ca8f239de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 10
+  gravity: 15
   health: 1
   active: 11
   damaged: 12

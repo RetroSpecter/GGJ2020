@@ -200,6 +200,11 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4515260724289363743, guid: b7f31b19f3e586949a6f9ee49f85a442,
+        type: 3}
+      propertyPath: gravity
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1305163763, guid: b7f31b19f3e586949a6f9ee49f85a442, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7f31b19f3e586949a6f9ee49f85a442, type: 3}

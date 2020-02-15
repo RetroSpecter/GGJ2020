@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3318584002802681187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.893157, y: -1.3883371, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 2}
   m_Children:
   - {fileID: 5857687371288986071}
   - {fileID: 58776336}
@@ -43,7 +43,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3318584002802681187}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bb50fd34930f8704686bab48567bfe7c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9811321, g: 0.21751513, b: 0.21751513, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a7d9a9fd5013340858651d560133b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityStrength: 10
+  health: 8
+  gravityStrength: 8
   coin: {fileID: 469506230067976250, guid: 80b5f68d13ec9104b863615d0e3dc2c2, type: 3}
   xVel: 0
 --- !u!1 &4024143459875523175
@@ -4914,6 +4915,10 @@ PrefabInstance:
     - target: {fileID: 100006, guid: d03d0c597bb388947bf16f564153364a, type: 3}
       propertyPath: m_Name
       value: asteroid1_LOD0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: d03d0c597bb388947bf16f564153364a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: d03d0c597bb388947bf16f564153364a, type: 3}
       propertyPath: m_LocalPosition.x

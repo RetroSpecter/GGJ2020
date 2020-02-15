@@ -27,6 +27,11 @@ PrefabInstance:
       propertyPath: xVel
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3318584002802681186, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
+        type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3318584002802681187, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
         type: 3}
       propertyPath: m_Name

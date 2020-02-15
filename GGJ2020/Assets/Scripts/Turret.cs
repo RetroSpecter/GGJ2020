@@ -29,7 +29,7 @@ public class Turret : Machine
 
     public void updateRate(float newRate) {
         CancelInvoke();
-        AudioManager.instance.Play("turret_shoot");
+        //AudioManager.instance.Play("turret_shoot");
         InvokeRepeating("shoot", newRate, newRate);
     }
 
