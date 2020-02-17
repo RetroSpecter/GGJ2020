@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn() {
         Vector2 position = (Vector2)transform.position + Random.insideUnitCircle.normalized * spawnRadius;
-        GameObject targetObject = spawnedObject[Random.Range(0, spawnedObject.Length-1)];
+        GameObject targetObject = spawnedObject[Random.Range(0, spawnedObject.Length)];
         Instantiate(targetObject, position, Quaternion.identity);
         float percent = multiplePercentage;
         while (percent > 10)
@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
             if (Random.Range(0f, 101f) < percent) {
                 percent /= 2;
                 position = (Vector2)transform.position + Random.insideUnitCircle.normalized * (spawnRadius + Random.Range(5, 15));
-                targetObject = spawnedObject[Random.Range(0, spawnedObject.Length - 1)];
+                targetObject = spawnedObject[Random.Range(0, spawnedObject.Length)];
                 Instantiate(targetObject, position, Quaternion.identity);
             }
             else

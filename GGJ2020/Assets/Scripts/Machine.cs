@@ -5,9 +5,11 @@ using DG.Tweening;
 
 public class Machine : MonoBehaviour
 {
-    private Controller2D controller;
+    protected Controller2D controller;
     public float gravity;
-    private Vector3 velocity;
+    public float horizVelocity;
+
+    protected Vector3 velocity;
     bool pickedUp;
     private float maxHealth;
     public float health;
@@ -19,22 +21,27 @@ public class Machine : MonoBehaviour
     {
         maxHealth = health;
         controller = GetComponent<Controller2D>();
+        velocity.x = Mathf.Sign(Random.Range(-100, 100)) * horizVelocity;
     }
 
     // Update is called once per frame
-    void Update() {
+    protected virtual void Update() {
         if (pickedUp) {
 
         } else {
-            velocity.y -= gravity * Time.deltaTime;
-
-            if (controller.collisions.below) {
-                velocity.x /= drag;
-            }
-
-            controller.Move(velocity * Time.deltaTime);
+            movement();
         }
         controller.triggerCheck();
+    }
+
+    protected virtual void movement() {
+        velocity.y -= gravity * Time.deltaTime;
+
+        if (controller.collisions.below) {
+            velocity.y = 0;
+            velocity.x /= drag;
+        }
+        controller.Move((velocity + Vector3.right * horizVelocity) * Time.deltaTime);
     }
 
     public void burstForce(Vector3 velocity, bool additive)
@@ -53,8 +60,9 @@ public class Machine : MonoBehaviour
         pickedUp = true;
     }
 
-    public void putDown() {
+    public void putDown(Vector2 vel) {
         pickedUp = false;
+        horizVelocity = Mathf.Sign(vel.x) * horizVelocity;
     }
 
     protected void OnTrigger(Transform collision)

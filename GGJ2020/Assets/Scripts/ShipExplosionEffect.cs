@@ -5,10 +5,10 @@ using DG.Tweening;
 
 public class ShipExplosionEffect : MonoBehaviour
 {
-    public ShipHealth planet;
+    public ShipManager planet;
     private void Start()
     {
-        planet = FindObjectOfType<ShipHealth>();
+        planet = FindObjectOfType<ShipManager>();
 
         if (planet != null)
             planet.gameOver += Explode;

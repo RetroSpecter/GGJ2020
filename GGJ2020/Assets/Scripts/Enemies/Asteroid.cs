@@ -17,7 +17,7 @@ public class Asteroid : MonoBehaviour
     void Start()
     {
         controller = GetComponent<Controller2D>();
-        velocity.x = Random.Range(-1, 1) * Random.Range(0, xVel);
+        velocity.x = Random.Range(0, 101) < 50 ? -xVel : xVel;
         transform.GetChild(0).transform.DORotate(Random.onUnitSphere * 360, 1);
     }
 

@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
     public bool canMove = true;
     public float moveSpeed = 6;
     public float holdingSpeed = 3;
+    public float shootingSpeed = 6;
     float velocityXSmoothing;
     Vector3 velocity;
 
@@ -42,8 +43,6 @@ public class Player : MonoBehaviour {
     private Healthbar healtbar;
     public delegate void repairDelegate();
 
-    public ParticleSystem dustParticleSystem;
-
     void Start() {
         controller = GetComponent<Controller2D>();
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -65,18 +64,11 @@ public class Player : MonoBehaviour {
 
             if (heldObject == null && Input.GetButtonDown("Fire2")) {
                 turret.startShot("Fire2");
-                moveSpeed /= 2; //this is pretty sloppy but whatever for now
-            }
-
-            if ( Input.GetButtonUp("Fire2")) {
-                moveSpeed *= 2; //this is pretty sloppy but whatever for now
             }
 
             anim?.setAnimation(velocity);
         }
 
-        ParticleSystem.EmissionModule em = dustParticleSystem.emission;
-        em.rateOverDistanceMultiplier = Mathf.Abs(input.x) > 0.5f && controller.collisions.below ? 1: 0;
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
@@ -106,7 +98,11 @@ public class Player : MonoBehaviour {
     }
 
     void movement(Vector2 input) {
-        float targetVelocityX = input.x * (heldObject != null ? holdingSpeed : moveSpeed);
+
+        float targetSpeed = (heldObject != null ? holdingSpeed : moveSpeed);
+        targetSpeed = Input.GetButton("Fire2") ? shootingSpeed : targetSpeed;
+
+        float targetVelocityX = input.x * targetSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? acclerationTimeGrounded : accelerationTimeAirborn);
 
     }
@@ -123,7 +119,7 @@ public class Player : MonoBehaviour {
                 {
                     other.GetComponent<Machine>().repair();
                 });
-                currentRepair = repairTimeEnum(2, repairPart, "Fire1");
+                currentRepair = repairTimeEnum(turretRepairTime, repairPart, "Fire1");
                 StartCoroutine(currentRepair);
             } else if (other.GetComponent<ShieldLayer>() != null && Input.GetButtonDown("Fire1") && currentRepair == null) {
                 repairDelegate repairShip = (() =>
@@ -131,7 +127,7 @@ public class Player : MonoBehaviour {
                     other.GetComponent<ShieldLayer>().RepairLayer();
                     burstForce(Vector2.up * 3, false);
                 });
-                currentRepair = repairTimeEnum(2, repairShip, "Fire1");
+                currentRepair = repairTimeEnum(shipRepairTime, repairShip, "Fire1");
                 StartCoroutine(currentRepair);
             } else if (other.GetComponent<Machine>() != null && Input.GetButtonDown("Fire1")) {
                 pickUpObject(other);
@@ -186,14 +182,22 @@ public class Player : MonoBehaviour {
     }
 
     public void dropObject(Vector2 velocity) {
-        heldObject.GetComponent<Machine>().putDown();
+       
         heldObject.transform.parent = null;
 
-        if (Mathf.Abs(velocity.x) > 0.1f)
-        {
+        //TODO: refine this throw direction to get last direction instead of defaulting to a direction
+        //TODO: bug in direction thrown with move velocity
+        if (Mathf.Abs(velocity.x) > 0.01f)
+        {          
             Vector2 dir = throwDirection * throwStrength;
             dir.x *= Mathf.Sign(velocity.x);
-            heldObject.GetComponent<Machine>().burstForce(dir, false);         
+            heldObject.GetComponent<Machine>().putDown(dir);
+            heldObject.GetComponent<Machine>().burstForce(dir, false);
+        } else {
+            Vector2 dir = throwDirection * throwStrength;
+            dir.x *= Mathf.Sign(Random.Range(-100, 100));
+            heldObject.GetComponent<Machine>().putDown(dir);
+            heldObject.GetComponent<Machine>().burstForce(dir, false);
         }
         canMove = false;
         Sequence s = DOTween.Sequence();

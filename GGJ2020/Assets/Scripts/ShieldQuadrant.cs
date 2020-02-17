@@ -17,6 +17,9 @@ public class ShieldQuadrant : MonoBehaviour
         health = shieldLayers.Length-1;
     }
 
+    public bool needsRepair() {
+        return health < shieldLayers.Length - 1;
+    }
 
     private void takeDamage() {
         if (health < 0) {

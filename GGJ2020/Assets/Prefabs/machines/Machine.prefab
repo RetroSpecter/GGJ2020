@@ -228,5 +228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 10
-  health: 0
+  horizVelocity: 0
+  health: 2
+  active: 11
+  damaged: 12
   drag: 1.1

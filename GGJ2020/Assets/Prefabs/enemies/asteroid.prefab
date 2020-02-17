@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 8
-  gravityStrength: 8
+  gravityStrength: 10
   coin: {fileID: 469506230067976250, guid: 80b5f68d13ec9104b863615d0e3dc2c2, type: 3}
   xVel: 0
 --- !u!1 &4024143459875523175

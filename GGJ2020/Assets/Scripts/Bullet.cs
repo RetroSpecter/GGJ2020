@@ -7,10 +7,11 @@ public class Bullet : MonoBehaviour
 
     Controller2D controller;
     public float speed;
+    public float radius = 1;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(this.gameObject, 3);
+        Destroy(this.gameObject, radius / (speed * Time.deltaTime));
         controller = GetComponent<Controller2D>();
     }
 
