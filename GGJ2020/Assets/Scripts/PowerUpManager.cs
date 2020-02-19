@@ -5,11 +5,13 @@ using DG.Tweening;
 
 public class PowerUpManager : MonoBehaviour
 {
-    public GameObject turret;
-    public GameObject machine;
-    public GameObject UI;
+    public GameObject[] machines;
 
-    public Transform spawnPoint;
+    [Space()]
+    public GameObject UI;
+    public PowerupOptionUI[] powerups;
+
+    public float spawnRadius;
     public bool active;
 
     public void Activate() {
@@ -40,7 +42,13 @@ public class PowerUpManager : MonoBehaviour
     }
 
     void spawnObject(GameObject machine) {
-        Instantiate(machine, spawnPoint.position, Quaternion.identity);
+        Instantiate(machine, Random.insideUnitCircle.normalized * spawnRadius, Quaternion.identity);
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(Vector2.zero, spawnRadius);
+    }
+
 }

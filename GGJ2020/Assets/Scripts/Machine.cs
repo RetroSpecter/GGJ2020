@@ -10,7 +10,7 @@ public class Machine : MonoBehaviour
     public float horizVelocity;
 
     protected Vector3 velocity;
-    bool pickedUp;
+    protected bool pickedUp;
     private float maxHealth;
     public float health;
     public int active, damaged;
@@ -26,21 +26,33 @@ public class Machine : MonoBehaviour
 
     // Update is called once per frame
     protected virtual void Update() {
-        if (pickedUp) {
-
-        } else {
+        velocity.y -= gravity * Time.deltaTime;
+        if (pickedUp)
+        {
+            // special picked up behavior
+        } else if (health > 0) {
             movement();
+        } else {
+            controller.Move((velocity) * Time.deltaTime);
         }
         controller.triggerCheck();
     }
 
     protected virtual void movement() {
-        velocity.y -= gravity * Time.deltaTime;
+        
 
         if (controller.collisions.below) {
             velocity.y = 0;
             velocity.x /= drag;
+
+
         }
+
+        if (controller.collisions.right || controller.collisions.left)
+        {
+            burstForce(Vector2.up * 1, true);
+        }
+
         controller.Move((velocity + Vector3.right * horizVelocity) * Time.deltaTime);
     }
 
@@ -84,7 +96,7 @@ public class Machine : MonoBehaviour
                 sp.DOFade(0.25f, 0.25f);
             
             gameObject.layer = damaged;
-}
+            }
         }
     }
 

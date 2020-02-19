@@ -30,7 +30,7 @@ public class ShieldQuadrant : MonoBehaviour
         }
     }
 
-    private void repair() {
+    public void repair() {
         if (health < shieldLayers.Length)
         {
             health++;
