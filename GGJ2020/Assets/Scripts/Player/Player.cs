@@ -62,9 +62,11 @@ public class Player : MonoBehaviour {
             jumpAndHover();
             movement(input);
 
+            /*
             if (heldObject == null && Input.GetButtonDown("Fire2")) {
                 turret.startShot("Fire2");
             }
+            */
 
             anim?.setAnimation(velocity);
         }

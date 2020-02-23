@@ -15,34 +15,23 @@ public class DebugWaveSpawner : Spawner
     public TextMeshProUGUI captainsLog;
 
     // Start is called before the first frame update
-    protected override void Start()
-    {
-        StartCoroutine(simulateWaves());
+    protected override void Start() {
         captainsLog.enabled = false;
     }
 
-    IEnumerator simulateWaves() {
+    public IEnumerator startWave() {
         yield return new WaitForSeconds(1);
         captainsLog.enabled = true;
         captainsLog.SetText("Captians log entry " + days + ": " + logs[Mathf.Min(days, logs.Length-1)]);
         yield return new WaitForSeconds(breakLength);
         captainsLog.enabled = false;
 
-        while (1 == 1)
-        {
-            InvokeRepeating("Spawn", spawnRate, spawnRate);
-            yield return new WaitForSeconds(waveLength);
-            days++;
-            CancelInvoke();
+        print("wave started");
 
-            yield return new WaitForSeconds(3);
-            captainsLog.enabled = true;
-            captainsLog.SetText("Captians log entry " + days + ": " + logs[Mathf.Min(days, logs.Length-1)]);
-            yield return new WaitForSeconds(breakLength);
-            captainsLog.enabled = false;
-
-            print("wave started");
-
-        }
+        InvokeRepeating("Spawn", spawnRate, spawnRate);
+        yield return new WaitForSeconds(waveLength);
+        days++;
+        CancelInvoke();
+        yield return new WaitForSeconds(3);        
     }
 }

@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8448
   triggerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -148,10 +148,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a7d9a9fd5013340858651d560133b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 1
   gravityStrength: 10
-  coin: {fileID: 469506230067976250, guid: 80b5f68d13ec9104b863615d0e3dc2c2, type: 3}
+  explosion: {fileID: 469506230067976250, guid: 80b5f68d13ec9104b863615d0e3dc2c2,
+    type: 3}
   xVel: 0
+  experience: {fileID: 5352551001728139778, guid: c760ddadb2897274583ba20fbcc498c0,
+    type: 3}
+  minExperience: 3
+  maxExperience: 5
 --- !u!96 &6478077478850344313
 TrailRenderer:
   serializedVersion: 2

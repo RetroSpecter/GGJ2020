@@ -44,8 +44,6 @@ public class Machine : MonoBehaviour
         if (controller.collisions.below) {
             velocity.y = 0;
             velocity.x /= drag;
-
-
         }
 
         if (controller.collisions.right || controller.collisions.left)

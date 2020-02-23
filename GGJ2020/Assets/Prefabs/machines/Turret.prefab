@@ -43,13 +43,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 15
+  horizVelocity: 0
   health: 1
   active: 11
   damaged: 12
   drag: 1.2
   bullet: {fileID: 2443770397660235321, guid: 2dc90e9b578167842b591c93582aaa32, type: 3}
   shootPosition: {fileID: 7886416117073946810}
-  rate: 4
+  rate: 0.5
 --- !u!1001 &5961776340578453678
 PrefabInstance:
   m_ObjectHideFlags: 0

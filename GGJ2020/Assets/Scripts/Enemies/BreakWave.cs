@@ -31,7 +31,7 @@ public class BreakWave : MonoBehaviour, IWave
 
         MusicManager.instance.playMusic(music);
 
-        pum?.Activate();
+        //pum?.Activate();
         endWave += manager.StartNextWave;
         Sequence s = DOTween.Sequence();
         s.AppendInterval(leadtime);
@@ -42,7 +42,7 @@ public class BreakWave : MonoBehaviour, IWave
         s.AppendInterval(audioTime);
         s.AppendInterval(endTime);
         s.AppendCallback(() => {
-            pum?.Deactivate();
+            //pum?.Deactivate();
             endWave.Invoke();
             endWave = null;
             CancelInvoke();

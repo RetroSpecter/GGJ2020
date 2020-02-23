@@ -10,42 +10,46 @@ public class PowerUpManager : MonoBehaviour
     [Space()]
     public GameObject UI;
     public PowerupOptionUI[] powerups;
+    public KeyCode[] powerupKeys;
 
     public float spawnRadius;
-    public bool active;
+    
+    public IEnumerator startPowerupSelect() {
+        GameObject[] randomMachines = randomlyChoosePowerups(powerupKeys.Length);
+        for (int i = 0; i < powerupKeys.Length; i++) {
+            PowerupOptionUI ui = powerups[i];
+            ui.setPowerup(randomMachines[i].name, powerupKeys[i].ToString());
+        }
 
-    public void Activate() {
         UI.transform.DOMoveY(0, 0.5f);
-        active = true;
-    }
+        while (true) {
+            for (int i = 0; i < powerupKeys.Length; i++) {
+                KeyCode key = powerupKeys[i];
+                if (Input.GetKeyDown(key)) {
 
-    public void Update()
-    {
-        if (active) {
-            /*
-            if (Input.GetButtonDown("Fire2"))
-            {
-                spawnObject(turret);
-                Deactivate();
-            } else if (Input.GetButtonDown("Fire3"))
-            {
-                spawnObject(machine);
-                Deactivate();
+                    spawnObject(randomMachines[i]);
+                    UI.transform.DOMoveY(-403, 0.5f);
+                    yield return new WaitForSeconds(0.5f);
+                    yield break;
+                }
             }
-            */
+            yield return null;
         }
     }
 
-    public void Deactivate() {
-        UI.transform.DOMoveY(-403, 0.5f);
-        active = false;
+    GameObject[] randomlyChoosePowerups(int num) {
+        GameObject[] ret = new GameObject[num];
+        for (int i = 0; i < num; i++) {
+            ret[i] = machines[Random.Range(0, machines.Length)];
+        }
+        return ret;
     }
 
     void spawnObject(GameObject machine) {
         Instantiate(machine, Random.insideUnitCircle.normalized * spawnRadius, Quaternion.identity);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(Vector2.zero, spawnRadius);

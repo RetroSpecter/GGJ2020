@@ -1,26 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Collectable : MonoBehaviour
 {
 
     private Controller2D controller;
+    private SpriteRenderer sprite;
+
     public float gravity;
-    public float initialBounceStrength;
+    public float bounciness;
+    public float drag;
     public float lifetime = 10;
+    public int experienceAmount = 1;
     public float minVelocity, maxVelocity;
     private Vector3 velocity;
 
-    // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponentInChildren<SpriteRenderer>();
         controller = GetComponent<Controller2D>();
         velocity.x = Random.Range(minVelocity, maxVelocity);
-        velocity.x = Random.Range(0.0f, 1.0f) > 0.5f ? 1: -1;
+        velocity.x *= Random.Range(0.0f, 1.0f) > 0.5f ? 1: -1;
+        velocity.y = Random.Range(5, 10);
+        sprite.transform.DORotate(new Vector3(0,0,-360*4), lifetime, RotateMode.FastBeyond360);
     }
 
-    // Update is called once per frame
     void Update() {
         if (controller.collisions.below) {
             bounce();
@@ -32,11 +38,13 @@ public class Collectable : MonoBehaviour
 
     private void OnTrigger(Transform collision)
     {
+        GetComponent<BoxCollider2D>().enabled = false;
+        GameManager.instance?.incrementExperience(experienceAmount);
         Destroy(this.gameObject);
     }
 
     void bounce() {
-        velocity.x /= 2;
-        velocity.y = -velocity.y/2;
+        velocity.x /= drag;
+        velocity.y = -velocity.y * bounciness;
     }
 }

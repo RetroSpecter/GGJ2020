@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: triggerMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 3318584002802681185, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
+        type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 8448
+      objectReference: {fileID: 0}
     - target: {fileID: 3318584002802681186, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
         type: 3}
       propertyPath: gravityStrength
@@ -30,8 +35,20 @@ PrefabInstance:
     - target: {fileID: 3318584002802681186, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
         type: 3}
       propertyPath: health
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3318584002802681186, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 469506230067976250, guid: 80b5f68d13ec9104b863615d0e3dc2c2,
+        type: 3}
+    - target: {fileID: 3318584002802681186, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
+        type: 3}
+      propertyPath: experience
+      value: 
+      objectReference: {fileID: 5352551001728139778, guid: c760ddadb2897274583ba20fbcc498c0,
+        type: 3}
     - target: {fileID: 3318584002802681187, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
         type: 3}
       propertyPath: m_Name

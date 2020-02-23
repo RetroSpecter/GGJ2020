@@ -9,9 +9,12 @@ public class Asteroid : MonoBehaviour
     private Controller2D controller;
     public float health;
     public float gravityStrength;
-    public GameObject coin;
+    public GameObject explosion;
     public float xVel;
     Vector2 velocity;
+    [Space()]
+    public GameObject experience;
+    public int minExperience = 1, maxExperience = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -27,29 +30,38 @@ public class Asteroid : MonoBehaviour
         controller.Move((gravityStrength * Vector2.down + velocity) * Time.deltaTime);
     }
 
-    private void OnCollision(Transform collision)
+    protected virtual void OnCollision(Transform collision)
     {
-        GameObject stuff = Instantiate(coin, transform.position, Quaternion.identity);
+        GameObject stuff = Instantiate(explosion, transform.position, Quaternion.identity);
+
         Destroy(stuff, 1f);
         GetComponent<Collider2D>().enabled = false;
         Destroy(this.gameObject);
         
     }
 
-    private void OnTrigger(Transform collision)
+    Sequence s;
+    protected virtual void OnTrigger(Transform collision)
     {
         health--;
-        if (health <= 0)
-        {
-            GameObject stuff = Instantiate(coin, transform.position, Quaternion.identity);
+        if (health <= 0 || collision.GetComponent<Player>()) {
+            GameObject stuff = Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(stuff, 1f);
             GetComponent<Collider2D>().enabled = false;
+            s.Kill();
             Destroy(this.gameObject);
-        }
-        else
-        {
+
+
+            int numOfDrop = Random.Range(minExperience, maxExperience);
+            for (int i = 0; i < numOfDrop; i++)
+            {
+                Instantiate(experience, transform.position, Quaternion.identity);
+            }
+
+        } else {
             burstForce(Vector2.up * 0.5f, true);
-            Sequence s = DOTween.Sequence();
+            s.Kill();
+            s = DOTween.Sequence();
             for (int i = 0; i < 3; i++)
             {
                 s.Append(GetComponentInChildren<SpriteRenderer>().DOFade(0.25f, 0.1f));
@@ -73,7 +85,7 @@ public class Asteroid : MonoBehaviour
     public void Hurt() {
         for (int i = 0; i < 4; i++)
         {
-            Instantiate(coin, transform.position, Quaternion.identity);
+            Instantiate(explosion, transform.position, Quaternion.identity);
         }
         Destroy(this.gameObject);
     }

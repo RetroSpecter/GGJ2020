@@ -43,7 +43,6 @@ public class Healer : Machine
             StartCoroutine(curRepairEnum);
         } else if (curRepairEnum == null) {
             controller.Move((velocity + Vector3.right * horizVelocity) * Time.deltaTime);
-            StopCoroutine(curRepairEnum);
             curRepairEnum = null;
             healtbar?.HideSlider();
         }
@@ -53,14 +52,14 @@ public class Healer : Machine
         healtbar?.ShowSlider();
         float t = 0;
         float soundtime = 0;
-        while (t < repairTime && quadrent.needsRepair())
+        while (t < time && quadrent.needsRepair())
         {
             healtbar?.UpdateSlider(t / repairTime);
 
             if (t > soundtime)
             {
                 AudioManager.instance.Play("repair");
-                soundtime += repairTime / 3;
+                soundtime += time / 3;
             }
 
             t += Time.deltaTime;
@@ -70,17 +69,17 @@ public class Healer : Machine
 
         curRepairEnum = null;
 
-        if (t >= repairTime && quadrent.needsRepair())
+        if (t >= time && quadrent.needsRepair())
         {
             repairAction.Invoke();
         }
-
     }
 
     private bool canRepair() {
         return health > 0 && curRepairEnum == null && !pickedUp;
     }
 
+    //TODO: abstract this into its own class since this also happen in Crawler
     private float get360Angle(Vector2 from, Vector2 to) {
         float ret = Vector2.SignedAngle(from, to);
         if (ret < 0) {
@@ -100,7 +99,8 @@ public class Healer : Machine
     protected override void takeDamage()
     {
         base.takeDamage();
-        StopCoroutine(curRepairEnum);
+        if(curRepairEnum!= null)
+            StopCoroutine(curRepairEnum);
         curRepairEnum = null;
         healtbar?.HideSlider();
     }

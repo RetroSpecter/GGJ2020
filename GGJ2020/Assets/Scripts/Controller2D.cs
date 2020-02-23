@@ -81,6 +81,7 @@ public class Controller2D : MonoBehaviour {
 
     }
 
+    //TODO: note there is aweakness in how i am detecting collisions and triggers. multiple raycasts hitting an object results in it being caleed multiple times
     void HorizontalCollisions(ref Vector3 velocity)
     {
         float directionX = Mathf.Sign(velocity.x);
@@ -153,6 +154,7 @@ public class Controller2D : MonoBehaviour {
             {
                 hit.transform.gameObject.SendMessage("OnTrigger", this.transform, SendMessageOptions.DontRequireReceiver);
                 SendMessage("OnTrigger", hit.transform, SendMessageOptions.DontRequireReceiver);
+                break;
             }
         }
     }
@@ -174,6 +176,7 @@ public class Controller2D : MonoBehaviour {
             {
                 hit.transform.gameObject.SendMessage("OnTrigger", this.transform, SendMessageOptions.DontRequireReceiver);
                 SendMessage("OnTrigger", hit.transform, SendMessageOptions.DontRequireReceiver);
+                break;
             }
         }
     }
