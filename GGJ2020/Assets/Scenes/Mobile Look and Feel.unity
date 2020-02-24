@@ -5754,7 +5754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 653444165}
-  - component: {fileID: 653444166}
+  - component: {fileID: 653444164}
   m_Layer: 0
   m_Name: debugSpawner
   m_TagString: Untagged
@@ -5762,6 +5762,62 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &653444164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653444163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1feba0f533edee0439590d4fe0781a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnedObject: []
+  spawnRadius: 35.8
+  spawnRate: 2.5
+  multiplePercentage: 25
+  debugColor: {r: 1, g: 0, b: 0, a: 1}
+  spawnRates:
+  - prefab: {fileID: 3318584002802681187, guid: 8733b4430e7c58748a0f93e0ba7ca9f4,
+      type: 3}
+    spawnChance:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    spawnChanceLength: 10
+  - prefab: {fileID: 2195759490654923263, guid: 7b50e7387fabb35458ee33a539a03ea3,
+      type: 3}
+    spawnChance:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    spawnChanceLength: 10
+  - prefab: {fileID: 5481573007959692997, guid: 6440987e8485cea46af45d50cb5709f2,
+      type: 3}
+    spawnChance:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    spawnChanceLength: 10
+  waveLength: 30
+  breakLength: 5
+  logs:
+  - <bottom text>
+  - <bottom text>
+  - <bottom text>
+  - <bottom text>
+  - <bottom text>
+  - <bottom text>
+  days: 1
+  captainsLog: {fileID: 2004847440}
 --- !u!4 &653444165
 Transform:
   m_ObjectHideFlags: 0
@@ -5777,37 +5833,6 @@ Transform:
   m_Father: {fileID: 1898871868}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &653444166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 653444163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e466f59dd6b52ca4a85fba41f76876ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedObject:
-  - {fileID: 5481573007959692997, guid: 6440987e8485cea46af45d50cb5709f2, type: 3}
-  - {fileID: 3318584002802681187, guid: 8733b4430e7c58748a0f93e0ba7ca9f4, type: 3}
-  - {fileID: 2195759490654923263, guid: 7b50e7387fabb35458ee33a539a03ea3, type: 3}
-  spawnRadius: 35.8
-  spawnRate: 2.5
-  multiplePercentage: 25
-  debugColor: {r: 1, g: 0, b: 0, a: 1}
-  waveLength: 30
-  breakLength: 5
-  logs:
-  - I'm stranded in space. What can go wrong.
-  - rocks. rocks everywhere
-  - 'Hopefully someone out there is looking for me... who am I kidding. '
-  - my shoes are starting to look edible
-  - fuuuuuuck
-  - <bottom text>
-  days: 1
-  captainsLog: {fileID: 2004847440}
 --- !u!1001 &705733327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41778,7 +41803,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experience: 0
-  experienceReq: 25
+  experienceReq: 15
+  experienceReqIncrease: 10
 --- !u!4 &1898871868
 Transform:
   m_ObjectHideFlags: 0

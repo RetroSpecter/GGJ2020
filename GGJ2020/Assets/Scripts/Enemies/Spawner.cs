@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
         InvokeRepeating("Spawn", spawnRate, spawnRate);
     }
 
-    void Spawn() {
+   protected virtual void Spawn() {
         Vector2 position = (Vector2)transform.position + Random.insideUnitCircle.normalized * spawnRadius;
         GameObject targetObject = spawnedObject[Random.Range(0, spawnedObject.Length)];
         Instantiate(targetObject, position, Quaternion.identity);

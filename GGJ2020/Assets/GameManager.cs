@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     PowerUpManager pum;
-    DebugWaveSpawner waveManager;
+    RampedWaveManager waveManager;
     ShipManager shipManager;
 
     // common delegates used by everyone
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private void Awake() {
         instance = this;
         pum = GetComponentInChildren<PowerUpManager>();
-        waveManager = GetComponentInChildren<DebugWaveSpawner>();
+        waveManager = GetComponentInChildren<RampedWaveManager>();
         shipManager = FindObjectOfType<ShipManager>();
 
         shipManager.gameOver += GameOver;
